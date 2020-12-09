@@ -17,7 +17,7 @@ if ($mysql_conn->connect_error) {
 // echo "Connected successfully";
 
 
-echo "<script>console.log(\"sdfsdgsfdgdfgdfgdfgdgsd\");</script>";
+
 $_SESSION['fixed_data'] = " DATE( published ) < DATE('2015-07-21') AND  DATE( published ) > DATE('2015-07-10') ";
 //$_SESSION['fixed_data'] = "";
 $_SESSION['from_data'] = "";

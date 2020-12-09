@@ -13,12 +13,13 @@ if(isset($_POST['Search']))
 {
 
 include("../db.php");
-$since=$_POST['txtSince'];
+//$since=$_POST['txtSince'];
+$since = "";
 if($since == "")
 $since = "2014-12-10";
 
-
-$until=$_POST['txtUntil'];
+$until = "";
+//$until=$_POST['txtUntil'];
 if($until == "")
 $until="2014-12-11";
 
@@ -36,7 +37,7 @@ $parts = explode(", ",trim($keywords));
 $clauses=array();
 foreach ($parts as $part){
     //function_description in my case ,  replace it with whatever u want in ur table
-    $clauses[]='"' . mysql_real_escape_string($part) . '"';
+    $clauses[]='"' . $part . '"';
 }
 $clause=implode(' OR ' ,$clauses);
 
@@ -49,7 +50,7 @@ $keywords="CSC OR @CSC OR Computer Sciences Corporation";
 	$c_query = "SELECT * FROM brands where brand='$company' and keywords = '$keywords'";
 	echo $c_query;
 $result=$mysql_conn->query($c_query);
-		$rn=mysql_num_rows($result);
+		$rn=$result->num_rows; //mysql_num_rows($result);
 		if($rn<=0)
 		{
 		$query = "Insert into brands (brand, keywords,competitors,active,created_at) Values('$company', '$keywords', '', '1', '$created_at')";
@@ -190,15 +191,15 @@ goto a;
 function printTweet($tweets,$company, $keywords)
 {
 echo '<br> ' . $keywords . '<br>';
-
+$counter =0;
 foreach($tweets as $tweet1) {
 $counter++;
-	//print_r($tweet1);
+	print_r($tweet1);
 	$id_str= $tweet1->id_str;
-	$text= mysql_real_escape_string($tweet1->text);
+	$text= $tweet1->text;
 	$user_id_str= $tweet1->user->id_str;
-	$user_name= mysql_real_escape_string($tweet1->user->name);
-	$user_screen_name= mysql_real_escape_string($tweet1->user->screen_name);
+	$user_name= $tweet1->user->name;
+	$user_screen_name= $tweet1->user->screen_name;
 	$follower_count= $tweet1->follower_count;
 	$friends_count= $tweet1->friends_count;
 	$favourites_count= $tweet1->favourites_count;
