@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>V-Listen</title>
+  <title>Social Listen</title>
   <link rel="stylesheet" href="js/jquery-ui-1.8.21.custom.css">
   <link rel="stylesheet" href="js/jquery-ui.css">
   <script src="js/jquery-1.10.2.js"></script>
