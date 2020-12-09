@@ -13,6 +13,8 @@ if(isset($_POST['Search']))
 {
 
 include("../db.php");
+
+print_r($mysql_conn);
 //$since=$_POST['txtSince'];
 $since = "";
 if($since == "")
@@ -53,10 +55,11 @@ $result=$mysql_conn->query($c_query);
 		$rn=$result->num_rows; //mysql_num_rows($result);
 		if($rn<=0)
 		{
-		$query = "Insert into brands (brand, keywords,competitors,active,created_at) Values('$company', '$keywords', '', '1', '$created_at')";
+		$query = "Insert into brands (brand, keywords,competitors,active) Values('$company', '$keywords', '', '1')";
 		echo '<br><br>' . $query .'<br><br>';
 		$result=$mysql_conn->query($query);
-		echo '<br><br>result of insert query is ' . $result;
+		echo '<br><br>result of insert query is ';
+print_r($result);
 		$result=$mysql_conn->query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
 
 		 while ($row = $result->fetch_assoc())
@@ -66,14 +69,15 @@ $result=$mysql_conn->query($c_query);
 		}
 		else
 		{
+			echo ("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
 		$result=$mysql_conn->query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
-
-		 while ($row = $result->fetch_assoc())
+	if($result->num_rows > 0)
+	{	 while ($row = $result->fetch_assoc())
 		   {
 		   $_SESSION['brandid']=$row['brandid'];
 		   }
 		}
-		
+		}	
 		echo 'company id ' . $_SESSION['brandid'] . '<br>';
 		
 		$_SESSION['nexturl_twi']="";

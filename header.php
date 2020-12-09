@@ -8,10 +8,10 @@ echo '<script>window.location.href="index.php";</script>';
 <div class="pgheader">
 <div class='cnt'>
 <div style="float:left;height:100%; width:20%;display:table-cell; vertical-align:middle ">
-<div style="width:40%;float:left;"> <a href="index.php" ><img src="images/icon1.png" style="width:100%;float:left;" /></a></div>
+<div style="width:25%;float:left;"> <a href="index.php" ><img src="images/icon1.png" style="width:100%;float:left;" /></a></div>
 
 <div  style="width:50%;float:left;">
-<img src="images/title.png" style="width:100%;" />
+<!--<img src="images/title.png" style="width:100%;" />-->
 </div>
 
 </div>
@@ -25,9 +25,9 @@ padding:5%;">
 
 <a id="showRight" width="100%" height="100%" style="margin:0 auto"><img src="images/menu-icon.png" style="margin:0 auto" width="75%" /></a>
 </div>
-<div style="width:25%;float:right; margin-right:1%;margin-top:5%; height:100%">
+<!--<div style="width:25%;float:right; margin-right:1%;margin-top:5%; height:100%">
 <img src="images/logo.png" style="width:100%;height:100%;" />
-</div>
+</div>-->
 <?php include('header_user.php'); ?>
 <?php include('header_notify.php'); ?>
 </div>

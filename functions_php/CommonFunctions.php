@@ -1,5 +1,6 @@
 <?php
 
+
 function include_words($include_words)
 {
 $parts = explode(", ",trim($include_words));
@@ -9,7 +10,7 @@ foreach ($parts as $part){
   //  $clauses[]="text LIKE '% " . mysql_real_escape_string($part) . "%'";
 	//$clauses[]="text LIKE '" . mysql_real_escape_string($part) . " %'";	
 	//$clauses[]="text LIKE '% " . mysql_real_escape_string($part) . "'";	
-	$clauses[]="text LIKE '%" . mysql_real_escape_string($part) . "%'";	
+	$clauses[]="text LIKE '%" . $part . "%'";	
 }
 $result_querystring=implode(' OR ' ,$clauses);		
 return $result_querystring;
@@ -21,7 +22,7 @@ $parts = explode(", ",trim($not_include_words));
 $clauses=array();
 foreach ($parts as $part){
     //function_description in my case ,  replace it with whatever u want in ur table
-    $clauses[]="text NOT LIKE '%" . mysql_real_escape_string($part) . "%'";
+    $clauses[]="text NOT LIKE '%" . $part . "%'";
 }
 $result_querystring=implode(' AND ' ,$clauses);		
 return $result_querystring;
@@ -57,11 +58,11 @@ $ar_total = $word ."~[";
 	if($ar_total == $word ."~")
 	{
 		$created_at = date("Y,n,d", strtotime("-1 month"));
-			if($min_date != "")
-			$ar_total = $word . "~" . "[[Date.UTC(" . ConvertDate($min_date) . "),0]";	
-			else if($max_date != "")
-			$ar_total = $word . "~" . "[[Date.UTC(" . ConvertDate($max_date) . "),0]";
-			else
+		//	if($min_date != "")
+		//	$ar_total = $word . "~" . "[[Date.UTC(" . ConvertDate($min_date) . "),0]";	
+		//	else if($max_date != "")
+		//	$ar_total = $word . "~" . "[[Date.UTC(" . ConvertDate($max_date) . "),0]";
+		//	else
 			$ar_total = $word . "~" . "[[Date.UTC(" . $created_at . "),0]";
 		
 	}
@@ -71,6 +72,10 @@ $ar_total = $word ."~[";
 
 function Source_Brand()
 {
+	
+	include("../db.php");
+	
+	
 	$global_fixed_brand="";
 	$query ="SELECT keywords FROM brands where brand like '%Mayo Clinic%'";   
 	$rows=$mysql_conn->query($query);

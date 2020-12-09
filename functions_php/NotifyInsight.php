@@ -1,6 +1,6 @@
 
 <?php
-include("../db.php");
+include("db.php");
 
 $searchword_cnt=0;
 // Newly added
@@ -14,7 +14,7 @@ if(isset($_GET['brand'])){
 
 $query ="SELECT distinct(brand) FROM brands "; // . $where_clause;
 $rows=$mysql_conn->query($query);
-//echo $query;
+echo $query;
 $competitors="";
 while ($row = $rows->fetch_assoc())
 {
@@ -98,7 +98,7 @@ $results = $mysql_conn->query($query);
 
 $WordCount = array();
 
-while ($Messages = mysql_fetch_array($results))
+while ($Messages = $rows->fetch_assoc())
 {
 $count=0;
 	$Words = explode(' ',$Messages["text"]);

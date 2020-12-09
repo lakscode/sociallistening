@@ -1,5 +1,7 @@
 <?php
-include("../db.php");
+include("db.php");
+
+
 include("CommonFunctions.php");
 $where_clause="";
 if(isset($_GET['brand']))
@@ -44,14 +46,14 @@ $keywords_arr = explode(", ", $row["keywords"]);
 $clause=implode(' OR ' ,$clauses);
 $brandids=substr($brandids, 0, -1);  
 if($clause != "")
-$clause = " and (" . $clause . ")";	
+$clause = " " . $clause . " ";	
 
  	
 $ar_total = $word . "~" ."[";	
 $categories="";
 $cData="";
 
-$query ="SELECT DATE_FORMAT(DATE(published),'%Y-%c-%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE  DATE( published ) > CURDATE( ) - INTERVAL 7 DAY " . $clause . " and sentiment = -1    GROUP BY DATE(published) order by pCount desc";  
+$query ="SELECT DATE_FORMAT(DATE(published),'%Y-%c-%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE  " . $clause . "  GROUP BY DATE(published) order by pCount desc";  
 //echo '<br>' . $query . '<br>';
 $rows=$mysql_conn->query($query);
 

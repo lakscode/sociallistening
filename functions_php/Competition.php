@@ -36,7 +36,7 @@ $keywords_arr = explode(", ", $row["keywords"]);
 $clause=implode(' OR ' ,$clauses);
 
 if($clause != "")
-$clause = " and (" . $clause . ")";	
+$clause = " (" . $clause . ")";	
 
  	
 $ar_total = $word . "~" ."[";	
@@ -44,17 +44,20 @@ $categories="";
 $cData="";
 if($_SESSION['fixed_data'] == "")
 {
-$query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE DATE( published ) > CURDATE( ) - INTERVAL 7 DAY " . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%') GROUP BY DATE(pDate) order by published"; 
+$query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE " . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%') GROUP BY DATE(pDate) order by published"; 
 }
 else
 {
-$query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE " . $_SESSION['fixed_data'] . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%') GROUP BY DATE(pDate) order by published"; 
+$query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE " . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%') GROUP BY DATE(pDate) order by published"; 
 }
 $rows=$mysql_conn->query($query);
-	//echo $query . '<br>';
+//	echo $query . '<br>';
 while ($row = $rows->fetch_assoc())
 {
- $ar_total .= "[Date.UTC(". ConvertDate($row['pDate']) . "), " . $row['pCount'] . "],";
+	//print_r($row);
+ //$ar_total .= "[Date.UTC(". ConvertDate($row['pDate']) . "), " . $row['pCount'] . "],";
+ 
+ $ar_total .= "[Date.UTC(". $row['pDate'] . "), " . $row['pCount'] . "],";
 }		
 //echo $ar_total;
 $ar_total=substr($ar_total, 0, -1); 
