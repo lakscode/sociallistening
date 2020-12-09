@@ -20,10 +20,10 @@ else
 	$query = "SELECT  *  FROM listeningdata WHERE DATE( published ) = '" .  $c_date . "' " .  $querystring . $clause . "  order by published desc  limit 0,100";
 }
 //echo $query;
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
 	$num_rows=mysql_num_rows ($rows );
 	$rOut="<div id='tweet_column' style='overflow: scroll;  height:390px' class='display-post'>";
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    //$rOut .="<div class='display-post'><p>" . $row['title'] . "</p></div>";
    $img= $row["author_img"];

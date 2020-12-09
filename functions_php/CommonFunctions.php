@@ -41,7 +41,7 @@ function ConvertDate($t_date)
 function FormatChartData($word, $rows)
 {
 $ar_total = $word ."~[";	
-	while ($row = mysql_fetch_array($rows))
+	while ($row = $rows->fetch_assoc())
 	{
 		if($max_date < $row['pDate'])
 		$max_date=$row['pDate'];
@@ -73,9 +73,9 @@ function Source_Brand()
 {
 	$global_fixed_brand="";
 	$query ="SELECT keywords FROM brands where brand like '%Mayo Clinic%'";   
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
 	$clients=array();
-	while ($row = mysql_fetch_array($rows))
+	while ($row = $rows->fetch_assoc())
 	{
 	$keywords_arr = explode(", ", $row["keywords"]);
 	foreach($keywords_arr AS $key_word)
@@ -97,11 +97,11 @@ function get_brand_id($brandname)
 {
 $query ="SELECT brandid, keywords FROM brands where brand like '%" . $brandname . "%'"; 
 	//	echo $query;
-		$rows=mysql_query($query);
+		$rows=$mysql_conn->query($query);
 		
 		$clients=array();
 		
-		while ($row = mysql_fetch_array($rows))
+		while ($row = $rows->fetch_assoc())
 		{
 		$brandid .= $row["brandid"] . ",";
 		}

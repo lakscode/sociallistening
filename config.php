@@ -56,11 +56,11 @@ if($_SESSION['rolesid'] != "")
 }
 $query ="SELECT * FROM roles " . $where_clause;
 //echo $query;
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 $competitors="";
 ?>
 <?php
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
   echo '<li><a href="ajax/content1.html">' . $row['rolename'] . '</a></li>';
 } 

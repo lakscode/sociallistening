@@ -8,9 +8,9 @@ include("db.php");
 $query="SELECT * from roles where rolesid='" . $_SESSION['rolesid'] ."'";
 			//	echo $query;
 				$rolename="";
-				$result=mysql_query($query);
+				$result=$mysql_conn->query($query);
 
-					while($row=mysql_fetch_array($result)){
+					while($row=$result->fetch_assoc()){
 					//print_r($row);
 						$rolename=$row['rolename'];	
 						}

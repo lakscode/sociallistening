@@ -76,7 +76,7 @@ $query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d')    as pDate, COUNT(*) as
 }
 
 //echo $query . '<br>';
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 $ar_total = FormatChartData($word, $rows);
 

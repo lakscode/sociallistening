@@ -5,9 +5,9 @@ $positivewords = file_get_contents('positivewords.txt', true);
 $positivewords_arr = explode(",", $positivewords);
 //print_r($positivewords_arr);
 include("../../db.php");
-$result=mysql_query("SELECT id, text FROM listeningdata where Date(published)>date('2015-06-27')");
+$result=$mysql_conn->query("SELECT id, text FROM listeningdata where Date(published)>date('2015-06-27')");
  
-while ($row = mysql_fetch_array($result))
+while ($row = $result->fetch_assoc())
    {
 	$neg=0; $pos=0; $neu=0;
 	   $text = $row['text'];
@@ -54,7 +54,7 @@ while ($row = mysql_fetch_array($result))
 					
 				$update_query="update listeningdata set sentiment=" . $sentiment . " where id=" . $row['id'];
 				echo $update_query;
-				$res=mysql_query($update_query)  or die("No connection is there".mysql_error());
+				$res=$mysql_conn->query($update_query)  or die("No connection is there".mysql_error());
 				echo $res; 
 
 		 

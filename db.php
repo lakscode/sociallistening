@@ -3,9 +3,8 @@ error_reporting(1);
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-
-
-	session_start(); ?>
+//  session_start(); 
+  ?>
 <?php
 
 
@@ -15,7 +14,7 @@ $mysql_conn = new mysqli("localhost","root","", "socialmedia");
 if ($mysql_conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
-echo "Connected successfully";
+// echo "Connected successfully";
 
 
 echo "<script>console.log(\"sdfsdgsfdgdfgdfgdfgdgsd\");</script>";

@@ -8,8 +8,8 @@ session_start();
 	$created_at = date('Y-m-d H:i:s');
 	$c_query = "SELECT * FROM `auto_share`.`listeningdata` where company_id=5 and date(published)=date('2015-06-23')";
 	echo $c_query;
-	$result=mysql_query($c_query);
-while ($row = mysql_fetch_array($result))
+	$result=$mysql_conn->query($c_query);
+while ($row = $result->fetch_assoc())
    {
    print_r($row);
    $id_str= $row["id_str"];
@@ -31,14 +31,14 @@ while ($row = mysql_fetch_array($result))
 	
 		if($text != "")
 	{
-		$result=mysql_query("SELECT * FROM `listening`.`listeningdata` where company_id=5 and date(published)=date('2015-06-23') and id_str='$id_str' and text='" . $text . "'");
+		$result=$mysql_conn->query("SELECT * FROM `listening`.`listeningdata` where company_id=5 and date(published)=date('2015-06-23') and id_str='$id_str' and text='" . $text . "'");
 		$rn=mysql_num_rows($result);
 		if($rn<=0)
 		{
 		$query = "Insert into `listening`.listeningdata (id_str, brandid, text, date_created, language, author, published, link, author_img, 
 		user_id_str, user_screen_name, follower_count, friends_count, favourites_count, statuses_count, retweet_count, favorite_count, site_type) Values('$id_str', " .$brandid .", '$text', '$created_at', '$language','$user_screen_name','$published','$profile_image_url', '$profile_image_url', '$user_id_str', '$user_name', '$follower_count', '$friends_count', '$favourites_count', '$statuses_count', '$retweet_count', '$favorite_count','twitter')";
 //		echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		
 		if( $result == 1)
 		{

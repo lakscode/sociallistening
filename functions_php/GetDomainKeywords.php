@@ -17,10 +17,10 @@ $query = "SELECT * FROM subdomain where domainid='" . $domain . "' and usergroup
 
 echo $query;
  //
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
 
 $cnt=0;
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
 //   print_r($row);
    $cnt++;

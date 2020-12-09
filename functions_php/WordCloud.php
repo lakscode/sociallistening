@@ -15,14 +15,14 @@ $query = "SELECT distinct(text)  FROM listeningdata WHERE DATE( published ) = '"
 
 //echo $query;
 
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
   $num_rows=mysql_num_rows ($rows );
 //echo 'Title:Site Trend~';
   $ar_total="";
 $ar_total = "[";
 $categories="";
 $cData="";
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    	$Words = explode(' ',$row["text"]);
 	foreach($Words AS $word)

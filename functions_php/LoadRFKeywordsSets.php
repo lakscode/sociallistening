@@ -9,7 +9,7 @@ $where_clause=" where keywordsid=" . $keywordsid;
 include("../db.php");
 $sql="SELECT * FROM role_functions_keywords_set " . $where_clause;
 //echo $sql;
-$result=mysql_query($sql);
+$result=$mysql_conn->query($sql);
 
 
 ?>
@@ -17,7 +17,7 @@ $result=mysql_query($sql);
 <div id='ControlsGroup'>
 <?php
 $cntr=1;
- while ($row = mysql_fetch_array($result))
+ while ($row = $result->fetch_assoc())
 		   {
 		   //echo '<option value="' . $row['keywordsid'] . '">' . $row['keywordsName'] . '</option>';
 		 

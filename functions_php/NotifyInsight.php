@@ -13,10 +13,10 @@ if(isset($_GET['brand'])){
 }
 
 $query ="SELECT distinct(brand) FROM brands "; // . $where_clause;
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 //echo $query;
 $competitors="";
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
    $searchwords_arr[$searchword_cnt]= $row["brand"];
 	$searchword_cnt++;
@@ -32,13 +32,13 @@ $clause ="";
 $query ="SELECT brandid,keywords FROM brands where brand like '%" . $word . "%'";
 
 //	echo '<br>' . $query . '<br>';
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 
 $brandids="";
 $clauses=array();
 $clients=array();
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
 //print_r($row);
 $brandids .= $row['brandid'] . ",";
@@ -63,11 +63,11 @@ $cData="";
 
 $query ="SELECT DATE_FORMAT(DATE(published),'%Y-%c-%d')   as pDate, COUNT(*) as pCount FROM listeningdata WHERE  DATE( published ) > CURDATE( ) - INTERVAL 10 DAY " . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%')    GROUP BY DATE(published) order by published";
 
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 //	echo '<br>' . $query . '<br>';
 $WordCount = array();
 $WordDate = array();
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
 if($WordCount[$word] < $row['pCount'])
 {
@@ -94,7 +94,7 @@ $ignorewords_arr = explode(",", $ignorewords);
 $query="SELECT text FROM `listeningdata` where DATE(published) = DATE('" . $WordDate[$word] ."') and brandid in (" . $brandids . ") " . $clause;
 
 	//echo $query . '<br>';
-$results = mysql_query($query);
+$results = $mysql_conn->query($query);
 
 $WordCount = array();
 

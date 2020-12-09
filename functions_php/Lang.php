@@ -13,7 +13,7 @@ $query = "SELECT LEFT(language, 2) as language, count(*) as langcount  FROM list
 }
 
 //echo $query;
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
   $num_rows=mysql_num_rows ($rows );
 
   $ar_total="";
@@ -21,7 +21,7 @@ $query = "SELECT LEFT(language, 2) as language, count(*) as langcount  FROM list
 $cData="";
 
 $ar_total = "[";
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    $lang=$row['language'];
    if($lang =="")

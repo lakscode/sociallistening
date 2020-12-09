@@ -12,7 +12,7 @@ else
 $query = "SELECT  id, author, text, link, site_type, published  FROM listeningdata WHERE DATE( published ) = '" .  $c_date . "' " .  $querystring . $clause . "  order by published desc  limit 0,1000";
 }
 //echo $query;
-$result = mysql_query($query) or die("Couldn't execute query:<br>" . mysql_error(). "<br>" . mysql_errno());    
+$result = $mysql_conn->query($query) or die("Couldn't execute query:<br>" . mysql_error(). "<br>" . mysql_errno());    
 $file_ending = "xls";
 header("Content-Type: application/xls");    
 header("Content-Disposition: attachment; filename=$filename.xls");  

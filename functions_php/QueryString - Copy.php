@@ -10,9 +10,9 @@ include("CommonFunctions.php");
 	
 	$query ="SELECT keywords FROM brands where brand like '%" . $_GET['brand'] . "%'";   
 	//echo $query;
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
 	$clients=array();
-	while ($row = mysql_fetch_array($rows))
+	while ($row = $rows->fetch_assoc())
 	{
 	$clients[]="text LIKE '% " . mysql_real_escape_string($row["keywords"]) . " %'";
 	$clients[]="text LIKE '" . mysql_real_escape_string($row["keywords"]) . " %'";	
@@ -171,14 +171,14 @@ $search_words="sue, legal action, worst service, disappointed, unhappy, sucks, p
 
 $search_words2="Claim, insurance, payment, insurance help, insurance, vehicle insurance, life insurance, commercial insurance, business insurance, disaster insurance, risk management, payout, disability insurance, credit insurance, annuities, pet insurance, insurance quote, credit rating insurance, travel insurance business, home insurance business, loan interest, loan for premiums, insurance rates, motor insurance, healthcare insurance, reinsurance, insurance bill, micro lending, Coordination of benefits, insurance, reimbursement, billing issue, customer transactions, credit rating , customer rating";
 
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
 
 }
 if($word == "'Delayed Response'")
 {
 $search_words="Late, late, delayed, long overdue, delay, resubmit, late-term, late phase delay, over a month, over a year, submitted late, insurance pending, months pending, beyond SLA, unduly long, too much time, pending, overdue, constant delay, what is sla, undue time taken, time waste, setback, slowdown, retard, postpone, defer, waiting period, time delay, untimely";
 $search_words2="Claim, insurance, payment, insurance help, insurance, vehicle insurance, life insurance, commercial insurance, business insurance, disaster insurance, risk management, payout, disability insurance, credit insurance, annuities, pet insurance, insurance quote, credit rating insurance, travel insurance business, home insurance business, loan interest, loan for premiums, insurance rates, motor insurance, healthcare insurance, reinsurance, customer follow up, insurance bill, claim number, co-insurance, micro lending , Coordination of benefits, insurance reimbursement, billing issue , customer transactions, credit rating , customer rating";
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
 
 }
 if($word == "'Unaddressed Issues'")
@@ -186,7 +186,7 @@ if($word == "'Unaddressed Issues'")
 $search_words="poor customer service, persistent complaint, never addressed, exhausted with complaining, constant battle, persistent issues, not happy, complaint, issue, bad, bad service, pathetic service, Unsatisfied, Expensive, Late, Delay, Unacceptable, Unfriendly, Not helpful, Disappointed, Deny, Need better service, Stuck, Painful, Wish, Mess, Fear, No closure, Never , unresponsive";
 
 $search_words2="Claim, insurance, payment, insurance help, insurance, vehicle insurance, life insurance, commercial insurance, business insurance, disaster insurance,  risk management, payout, disability insurance, credit insurance, annuities, pet insurance, insurance quote, credit rating insurance, travel insurance business, home insurance business, loan interest, loan for premiums, insurance rates, motor insurance, healthcare insurance, reinsurance, claims management, customer follow up, insurance bill, insurance benefits, claim number, co-insurance , micro lending , Coordination of benefits, insurance reimbursement, billing issue , customer transactions, credit rating , customer rating";
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern,concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern,concert, motor racing";
 
 }
 
@@ -196,7 +196,7 @@ $search_words="happy, very fast, appreciate, amazing, brilliant, excellent, grea
 
 $search_words2="Claim, insurance, payment, insurance help, insurance, vehicle insurance, life insurance, commercial insurance, business insurance, disaster insurance, risk management, payout, disability insurance, credit insurance, annuities, pet insurance, insurance quote, credit rating insurance, travel insurance business, home insurance business, loan interest, loan for premiums, insurance rates, motor insurance, healthcare insurance, reinsurance, claims , billing issue management, insurance bill, insurance benefits , claim number, co-insurance , micro lending, Coordination of benefits, insurance reimbursement, customer transactions, credit rating , customer rating";
 
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern,concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern,concert, motor racing";
 }
 
 if($search_words != "")
@@ -268,7 +268,7 @@ meeting, quick, duplicate, replica, fake, model, original, carbon copy, print, c
 
 $search_words2="New  quote, quotation, how much,  offer, agent, contact, leads, price, general insurance, vehicle insurance,  motor insurance,   life insurance, commercial insurance, business insurance, disaster insurance, risk management, disability insurance, credit insurance, pet insurance,  insurance, travel insurance business, home insurance business, loan for premiums, motor insurance, healthcare insurance, reinsurance, insurance reimbursement, payment, credit rate, rating, rank, feedback, online, private, customer, service, credit history,  premium, payment, annuities, renew, proof, verification, billing issue";
 
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
 
 }
 
@@ -276,7 +276,7 @@ if($word == "'Type of Insurance Leads'")
 {
 $search_words="Type, kind, category, variety, class, different, same, old, new,  launch, exclusive, include, exclude, coverage,  copy, fake, model, original, carbon copy, mock, clone, same type, together, combine, related, special, specific, exact, explicit, definite, certain, identifiable, particular, vague, general, limit, gender, male, female, child, vehicle, motor, car, automobile, travel, health, reinsurance, renew, referral";
 $search_words2="new, quote, quotation, how much,  offer, agent, contact, leads, price, general insurance, vehicle insurance,  motor insurance,   life insurance, commercial insurance, business insurance, disaster insurance, risk management, disability insurance, credit insurance, pet insurance,  insurance, travel insurance business, home insurance business, loan for premiums, motor insurance, healthcare insurance, reinsurance, insurance reimbursement, payment, credit rate, rating, rank, feedback, online, private, customer, service, credit history,  premium, insurance rates,   payment, annuities, renew, verification, proof, billing issue";
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
 }
 
 if($word == "'Administration'")
@@ -284,7 +284,7 @@ if($word == "'Administration'")
 $search_words="administration, supervise,  staff, office, location, near, friendly, building, site down, customer service, mismanagement, close, terminate, great, treat, verify, poor response,  management, pathetic, poor customer service, persistent complaint, never addressed, exhausted with complaining, constant battle, persistent issues, not happy, complaint, issue, bad, bad service, pathetic service, Unsatisfied, Expensive, late, delay, unacceptable, unfriendly, not helpful, disappointed, deny, need better service, stuck, painful, wish, mess, fear, no closure, never , unresponsive, reach, disappointed, fail, poor response, process, individual, deliver, result,  pickup, relate";
 $search_words2="new, quote, quotation, how much,  offer, agent, contact, leads, price, vehicle insurance,  motor insurance,   life insurance, commercial insurance, business insurance, disaster insurance, risk management, disability insurance, credit insurance, pet insurance,  insurance, travel insurance business, home insurance business, loan for premiums, motor insurance, healthcare insurance, reinsurance, insurance reimbursement, payment, credit rate, rating, rank, feedback, online, private, customer, service, credit history,  premium, insurance rates,   payment, annuities, renew, verification, proof
 ";
-$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, OTRA METLIFE, METLIFE SQUAD, MetLife stadium, ticket, going, MetLife tickets, new York giants, Taylor Swift, Vance Joy,  Shawn Mendes, seating, seat, seating arrangement, celebrities, catwalk, taylor, superbowl, fuck, fucking, new england patriots, row, meetup, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, MetLife date,  MetLife expo, nfl tickets, intern, concert, motor racing";
 }
 
 

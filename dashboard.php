@@ -18,14 +18,14 @@
 		$sql_Competitors ="SELECT brandid, brand FROM brands where active=1 group by brand ";
 		//echo $query;
 		$competitors="";
-		$rows=mysql_query($sql_Competitors);
-		while ($row = mysql_fetch_array($rows)){
+		$rows=$mysql_conn->query($sql_Competitors);
+		while ($row = $rows->fetch_assoc()){
 		$clauses[$row['brandid']] = $row['brand'];
 			$competitors .="<option value='" . $row['brandid'] . "'>" . $row['brand'] . "</option>";
 			}
 		$query ="SELECT b.brandid, b.brand, b.keywords, b.competitors, b.created_at, b.domainid, b.active, b.dashboard, d.domain FROM brands b, domain d where b.domainid=d.domainid order by brandid ";
 		//echo $query;
-		$rows=mysql_query($query);
+		$rows=$mysql_conn->query($query);
 		
 	?>
 	<?php
@@ -39,7 +39,7 @@
 		echo "<th width='15%'>Creation Date</th>";
 		echo "<th width='2%'>Domain</th>";
 		echo "<th width='5%'>Status</th>";
-		while ($row = mysql_fetch_array($rows)){
+		while ($row = $rows->fetch_assoc()){
 		$str_comp="";
 			$Words = explode(', ',$row["competitors"]);
 	foreach($Words AS $word)
@@ -103,7 +103,7 @@ if(isset($_POST['btnDBSave']))
 		include("db.php");
 		$query ="update brands set dashboard=1, competitors='" . $comp . "' where brandid=" . $chkDB[$i];
 		// echo $query;
-		$rows=mysql_query($query);
+		$rows=$mysql_conn->query($query);
     }
   }
 }

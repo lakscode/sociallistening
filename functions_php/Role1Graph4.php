@@ -36,7 +36,7 @@ if($word == "Healthcare Business Generation")
 
 	$search_words2="mediclaim, insurance, global payment, coordination of benefits, billing issue, customer transaction, customer rating, healthcare package, healthcare campaigns, partnership, joint venture, tie ups, commercial health plan, contracting, incentive distribution, referral, innovation, market share, return business, physician partnership, growth, marketing clinical programs, local healthcare providers, operating income, revenue";
 
-	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 
 }
 
@@ -46,7 +46,7 @@ if($word == "Healthcare Packages and Offers")
 
 	$search_words2="checkup, disease management, healthcare package, healthcare campaigns, partnership, preventive, personalized, basic, advanced, heart checkup, liver checkup, kidney checkup, polio drop, cataract, eye checkup, family checkup, cardiac package, senior citizens health checkup, master health checkup, child health checkup, coupons, offers, vouchers, online, full body package";
 
-	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 if($word == "Hospital Administration")
@@ -55,7 +55,7 @@ if($word == "Hospital Administration")
 
 	$search_words2="mediclaim, insurance, global payment, emergency, OPD, doctor, hospitalization, pathology, trauma center, helpdesk, risk management, billing issue, customer transaction, vaccination, hygiene, checkup, disease management, healthcare package, TPA, disease management, blood bank, ambulance, healthcare campaigns, partnership, security, nursing staff, joint venture, referral, emergency, hospital amenity, patient satisfaction, organ donation, intensive care, housekeeping, nursing staff, compliance, parking, patient records";
 
-	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+	$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 
@@ -97,7 +97,7 @@ $query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pC
 }
 //echo $query . '<br>';
 
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 $ar_total = FormatChartData($word, $rows);
 

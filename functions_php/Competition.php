@@ -3,10 +3,10 @@ include("../db.php");
 include("CommonFunctions.php");
 	$searchword_cnt=0;
 	$query ="SELECT distinct(brand) FROM brands where active=1"; 
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 //echo $query;
 $competitors="";
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
 $competitors .= $row["brand"] . ", ";
  $searchwords_arr[$searchword_cnt]= $row["brand"];
@@ -21,10 +21,10 @@ for ($x = 0; $x < $searchword_cnt; $x++) {
 $word =$searchwords_arr[$x];
 
 	$query ="SELECT keywords FROM brands where brand like '%" . $word . "%'"; 
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 $competitors="";
 $clauses=array();
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
 $keywords_arr = explode(", ", $row["keywords"]);
 	foreach($keywords_arr AS $key_word)
@@ -50,9 +50,9 @@ else
 {
 $query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pCount FROM listeningdata WHERE " . $_SESSION['fixed_data'] . $clause . " and brandid in (select brandid from brands where brand like '%" . $word ."%') GROUP BY DATE(pDate) order by published"; 
 }
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 	//echo $query . '<br>';
-while ($row = mysql_fetch_array($rows))
+while ($row = $rows->fetch_assoc())
 {
  $ar_total .= "[Date.UTC(". ConvertDate($row['pDate']) . "), " . $row['pCount'] . "],";
 }		

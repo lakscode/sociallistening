@@ -26,20 +26,20 @@ if($word == "Quality of Health Services")
 {
 $search_words="worst service, disappointed, unhappy, sucks, pathetic, disgusted, lost patience, sick, negative, worse, penalties, inexcusable, fraud, dishonest, loss, at loss, legal notice, delayed, disappointed, inexperience, careless, expensive, unavailable, cost effective, unacceptable, painful, safe, well trained, efficient, competitive, compliant, world class";
 $search_words2="mediclaim, insurance, global payment, emergency, OPD, doctor, hospitalization, pathology, trauma center, helpdesk, risk management, coordination of benefits, billing issue, customer transaction, customer rating, vaccination, hygiene, checkup, disease management, healthcare package, process improvement, TPA, disease management, blood bank, ambulance, healthcare campaigns, partnership, security, nursing staff, emergency, hospital amenity, patient satisfaction, organ donation, service enhancement, intensive care";
-$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 if($word == "Patient Health Management")
 {
 $search_words="late, delayed, delay, late phase delay, over a month, unduly long, too much time, pending, overdue, what is sla, undue time taken, time waste, setback, retard, postpone, defer, time delay, untimely, late admission, competitive, world class, friendly, timely, excellent, exceptional, qualitative, recommend, impressed, refer, superior, helpful, beneficial";
 $search_words2="mediclaim, insurance, emergency, OPD, doctor, hospitalization, pathology, trauma center, helpdesk, risk management, customer rating, vaccination, hygiene, checkup, disease management, healthcare package, process improvement, TPA, disease management, blood bank, ambulance, healthcare campaigns, partnership, security, nursing staff, emergency, hospital amenity, patient satisfaction, organ donation, service enhancement, intensive care";
-$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 if($word == "Health Insurance")
 {
 $search_words="persistent complaint, never addressed, exhausted with complaining, constant battle, persistent issues, not happy, complaint, bad service, pathetic service, dissatisfied, expensive, unacceptable, unfriendly, disappointed, deny, Need better service, never, refusing to pay, penalty, affordable, adequate,, good, superb, excellent features, appropriate";
 $search_words2="mediclaim, insurance, global payment, emergency, OPD, hospitalization, helpdesk, risk management, billing issue, customer transaction, process improvement, TPA, emergency, patient satisfaction, service enhancement, rejection, insurer, critical illness, approval, cashless, mediclaim settlement, network hospitals, policy, medical expenses, health insurance premium, co-payment, coinsurance, disease management, lifetime health cover, medicare surcharge, insurance medicine";
-$not_include_words="Stadium, Joy,  seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, Joy,  seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 if($search_words != "")
@@ -82,7 +82,7 @@ $query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d') as pDate, COUNT(*) as pC
 }
 
 //echo $query . '<br>';
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 $ar_total = FormatChartData($word, $rows);
 

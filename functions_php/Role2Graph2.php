@@ -28,14 +28,14 @@ if($word == "Healthcare Trends")
 {
 $search_words="disappointed, unhappy, pathetic, inexcusable, loss, at loss, innovative, good, outstanding, efficient, eye opener, beneficial, customer centric, focused, affordable, inexperience, expensive, unavailable, unacceptable, painful, helpful, thank, insightful, aware, effective, cure, boost, manage, rewarding, profitable, patient friendly, caring";
 $search_words2="mediclaim, insurance, global payment, emergency, hospitalization, pathology, trauma center, risk management, coordination of benefits, customer transaction, customer rating, disease management, healthcare package, process improvement, disease management, healthcare campaign , emergency service, patient care, organ donation, service enhancement, intensive care, drug innovation, industry analysis, DIY health options, affordable care, digital, electronic medical record, revenue generation, healthcare system, research, medical education, project BOOST";
-$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 if($word == "Healthcare Competition Trends")
 {
 $search_words="disappointed, unhappy, pathetic, inexcusable, loss, at loss, innovative, good, outstanding, efficient, eye opener, beneficial, customer centric, focused, affordable, inexperience, expensive, unavailable, unacceptable, painful, helpful, thank, insightful, aware, effective, cure, boost, manage, rewarding, profitable, patient friendly, caring";
 $search_words2="mediclaim, insurance, global payment, emergency, hospitalization, pathology, trauma center, risk management, coordination of benefits, customer transaction, customer rating, disease management, healthcare package, process improvement, disease management, healthcare campaign , emergency service, patient care, organ donation, service enhancement, intensive care, drug innovation, industry analysis, DIY health options, affordable care, digital, electronic medical record, revenue generation, healthcare system, research, medical education, project BOOST";
-$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, father’s day, floor, show, nfl tickets, intern, concert, motor racing";
+$not_include_words="Stadium, Joy, seating, seat, seating arrangement, celebrities, catwalk, super bowl, fuck, fucking, row, meet up, apply, job, Olympic, hiring, summer event, winter event, event, fatherï¿½s day, floor, show, nfl tickets, intern, concert, motor racing";
 }
 
 
@@ -78,7 +78,7 @@ $query ="SELECT DATE_FORMAT(DATE(published),'%Y,%c,%d')    as pDate, COUNT(*) as
 }
 
 //echo $query . '<br>';
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 $ar_total = FormatChartData($word, $rows);
 

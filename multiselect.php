@@ -8,8 +8,8 @@
 		$sql_Competitors ="SELECT brandid, brand FROM brands where active=1 group by brand ";
 		//echo $query;
 		$competitors="";
-		$rows=mysql_query($sql_Competitors);
-		while ($row = mysql_fetch_array($rows)){
+		$rows=$mysql_conn->query($sql_Competitors);
+		while ($row = $rows->fetch_assoc()){
 		echo " <option value='" . $row['brandid'] . "'>" . $row['brand'] . "</option>";
 		}
 		?>

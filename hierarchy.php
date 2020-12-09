@@ -3,7 +3,7 @@ include("db.php");
 
 $data = array();
 $index = array();
-$query = mysql_query("SELECT id, parent_id, name FROM categories ORDER BY name");
+$query = $mysql_conn->query("SELECT id, parent_id, name FROM categories ORDER BY name");
 while ($row = mysql_fetch_assoc($query)) {
     $id = $row["id"];
     $parent_id = $row["parent_id"] === NULL ? "NULL" : $row["parent_id"];

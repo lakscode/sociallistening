@@ -36,22 +36,22 @@ $keywords="CSC OR @CSC OR Computer Sciences Corporation";
 	$created_at = date('Y-m-d H:i:s');
 	$c_query = "SELECT * FROM company where company='$company' and keywords = '$keywords'";
 	echo $c_query;
-$result=mysql_query($c_query);
+$result=$mysql_conn->query($c_query);
 		$rn=mysql_num_rows($result);
 		if($rn<=0)
 		{
 		$query = "Insert into company (company, keywords,competitors,active,created_at) Values('$company', '$keywords', '', '1', '$created_at')";
 		echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		echo '<br><br>result of insert query is ' . $result;
 		
 		$_SESSION['companyid']=mysql_insert_id();
 		}
 		else
 		{
-		$result=mysql_query("SELECT id FROM company where company='$company'");
+		$result=$mysql_conn->query("SELECT id FROM company where company='$company'");
 
-		 while ($row = mysql_fetch_array($rows))
+		 while ($row = $rows->fetch_assoc())
 		   {
 		   $_SESSION['companyid']=$row['id'];
 		   }
@@ -65,12 +65,12 @@ $result=mysql_query($c_query);
 		$_SESSION['next_url']="";
 
 		$t_query="SELECT * FROM schedule where company_id=" . $_SESSION['companyid'] . " and active=1  and source='webhose'";
-		$result=mysql_query($t_query);
-			 while ($row = mysql_fetch_array($result))
+		$result=$mysql_conn->query($t_query);
+			 while ($row = $result->fetch_assoc())
 		   {
 		   $_SESSION['next_url']=$row['next_url'];
 		   $query = "update schedule set active=0 where company_id= " . $_SESSION['companyid'] . " and source='webhose'" ;
-		   $result=mysql_query($query);
+		   $result=$mysql_conn->query($query);
 
 
 		   }
@@ -108,7 +108,7 @@ else
 	{
 		$created_at = date('Y-m-d H:i:s');
 		$query = "Insert into schedule (company_id, source, next_url,active,created_at) Values(" . $_SESSION['companyid'] .", 'webhose', '$next', 1, '$created_at')";
-		 $result=mysql_query($query);
+		 $result=$mysql_conn->query($query);
 	 }
 }
 }
@@ -162,14 +162,14 @@ if($text != "")
 	{
 	$c_query="SELECT * FROM listeningdata where link='$link'";
 	echo $c_query;
-		$result=mysql_query($c_query);
+		$result=$mysql_conn->query($c_query);
 		$rn=mysql_num_rows($result);
 		echo $rn;
 		if($rn<=0)
 		{
 		$query = "Insert into listeningdata (company_id, text, date_created, language, author, published, link, title,  site_full, site, site_section, section_title, title_full, replies_count, participants_count, site_type, spam_score, ord_in_thread,crawled) Values(" . $_SESSION['companyid'] . ",'$text', '$created_at', '$language', '$author','$published','$url','$title', '$site_full','$site','$site_section','$section_title','$title_full',$replies_count,$participants_count,'$site_type',$spam_score,$ord_in_thread,'$crawled')";
 		echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		echo '<br><br>result of insert query is ' . $result;
 		}
 	}

@@ -66,9 +66,9 @@
 					echo 'Please enter valid credentials to register';
 				}else{
 				$query="SELECT * from users where status =1 and username='" . $txtname . "' and password='" . $txtpass . "'";
-				$result=mysql_query($query);
-				if($result){
-					while($row=mysql_fetch_array($result)){
+				$result=$mysql_conn->query($query);
+				if($result->num_rows > 0){
+					while($row=$result->fetch_assoc()){
 					
 					}
 					}
@@ -78,7 +78,7 @@
 					$userCreated_at=date('Y-m-d H:i:s');
 					$query="INSERT INTO users (username, password, firstname, created, role) VALUES ('$txtname','$txtpass','$userFirstName','$userCreated_at',$userRole)";
 					//echo $query;
-					mysql_query($query) or die("No connection is there".mysql_error());
+					$mysql_conn->query($query) or die("No connection is there".mysql_error());
 					echo 'Registered successfully';
 					//if(mysql_errno()){echo 'Registered successfully';}
 				}

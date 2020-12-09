@@ -25,7 +25,7 @@ $construct .="AND text LIKE '%$search_each%'";
 }
   
 $constructs ="SELECT * FROM listeningdata WHERE $construct";
-$run = mysql_query($constructs);
+$run = $mysql_conn->query($constructs);
     
 $foundnum = mysql_num_rows($run);
     
@@ -44,7 +44,7 @@ $start = isset($_GET['start']) ? $_GET['start']: '';
 $max_pages = ceil($foundnum / $per_page);
 if(!$start)
 $start=0; 
-$getquery = mysql_query("SELECT * FROM listeningdata WHERE $construct LIMIT $start, $per_page");
+$getquery = $mysql_conn->query("SELECT * FROM listeningdata WHERE $construct LIMIT $start, $per_page");
   
 while($runrows = mysql_fetch_assoc($getquery))
 {

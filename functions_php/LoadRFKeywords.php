@@ -9,7 +9,7 @@ $where_clause=" where rf_id=" . $rf_id;
 include("../db.php");
 $sql="SELECT * FROM role_functions_keywords " . $where_clause;
 //echo $sql;
-$result=mysql_query($sql);
+$result=$mysql_conn->query($sql);
 
 
 ?>
@@ -19,7 +19,7 @@ $result=mysql_query($sql);
   <select id="selRFKeywords" onchange="loadKeywordsSet()" name="selRFKeywords" class="style-1">
   <option value="">Select Functions</option>
   <?php
-		 while ($row = mysql_fetch_array($result))
+		 while ($row = $result->fetch_assoc())
 		   {
 		   echo '<option value="' . $row['keywordsid'] . '">' . $row['keywordsName'] . '</option>';
 		   }

@@ -22,8 +22,8 @@
 include("db.php");
 $query = "SELECT * FROM charts";
 //echo $query;
-$rows=mysql_query($query);
-while ($row = mysql_fetch_array($rows))
+$rows=$mysql_conn->query($query);
+while ($row = $rows->fetch_assoc())
 {
 	echo '<option value="' . $row['chartid'] . '">' . $row['chartname'] . '</option>';
 }
@@ -58,7 +58,7 @@ $txtKeyset3=$_POST['txtKeyset3'];
   $key3= $txtKeyset3[$key];
   $query = "Insert into role_functions_keywords (keywordsName, keywords_set1, keywords_set2, do_not_include, rf_id,created_at) Values('$cat','$key1','$key2', '$key3', '$selRoleFunction','$created_at')";
 	echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		
 		
 		
@@ -67,14 +67,14 @@ $txtKeyset3=$_POST['txtKeyset3'];
 /*
 $c_query = "SELECT * FROM role_functions where title='$txtChartTitle' and roles_id='$selRole'";
 	//echo $c_query;
-$result=mysql_query($c_query);
+$result=$mysql_conn->query($c_query);
 	$rn=mysql_num_rows($result);
 	if($rn<=0)
 	{
 
 	$query = "Insert into role_functions (title,description, roles_id,active,chart_type,created_at) Values('$txtChartTitle','$txtChartDesc','$selRole', '1', '$selGraphType','$created_at')";
 	//echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		
 		
 	echo '<p class="success">Inserted the Graph Description</p>';

@@ -13,7 +13,7 @@ $query = "SELECT site_type, count(*) as site_typecount  FROM listeningdata WHERE
 }
 
 //echo $query;
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
   $num_rows=mysql_num_rows ($rows );
 
  // $ar_total="";
@@ -21,7 +21,7 @@ $query = "SELECT site_type, count(*) as site_typecount  FROM listeningdata WHERE
 $cData="";
 
 //$ar_total = "[";
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    $site_type=$row['site_type'];
    if($site_type =="")

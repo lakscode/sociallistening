@@ -14,14 +14,14 @@ $query = "SELECT site, count(*) as sitecount  FROM listeningdata WHERE DATE( pub
 
 //echo $query;
 
-	$rows=mysql_query($query);
+	$rows=$mysql_conn->query($query);
   $num_rows=mysql_num_rows ($rows );
 //echo 'Title:Site Trend~';
   $ar_total="";
 $ar_total = "[";
 $categories="";
 $cData="";
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    $lang=$row['site'];
    if($lang =="")

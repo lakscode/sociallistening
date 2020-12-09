@@ -49,26 +49,26 @@ $keywords="CSC OR @CSC OR Computer Sciences Corporation";
 	$created_at = date('Y-m-d H:i:s');
 	$c_query = "SELECT * FROM brands where brand='$company' and keywords = '$keywords'";
 	echo $c_query;
-$result=mysql_query($c_query);
+$result=$mysql_conn->query($c_query);
 		$rn=mysql_num_rows($result);
 		if($rn<=0)
 		{
 		$query = "Insert into brands (brand, keywords,competitors,active,created_at) Values('$company', '$keywords', '', '1', '$created_at')";
 		echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		echo '<br><br>result of insert query is ' . $result;
-		$result=mysql_query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
+		$result=$mysql_conn->query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
 
-		 while ($row = mysql_fetch_array($result))
+		 while ($row = $result->fetch_assoc())
 		   {
 		   $_SESSION['companyid']=$row['brandid'];
 		   }
 		}
 		else
 		{
-		$result=mysql_query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
+		$result=$mysql_conn->query("SELECT brandid FROM brands where brand='$company' and keywords = '$keywords'");
 
-		 while ($row = mysql_fetch_array($result))
+		 while ($row = $result->fetch_assoc())
 		   {
 		   $_SESSION['companyid']=$row['brandid'];
 		   }
@@ -79,13 +79,13 @@ $result=mysql_query($c_query);
 		$_SESSION['next_url']="";
 
 		$t_query="SELECT * FROM schedule where brandid=" . $_SESSION['companyid'] . " and active=1  and source='twitter'";
-		$result=mysql_query($t_query);
-			while ($row = mysql_fetch_array($result))
+		$result=$mysql_conn->query($t_query);
+			while ($row = $result->fetch_assoc())
 		   {
 		   $_SESSION['next_url']=$row['next_url'];
 		   $query = "delete * from schedule where brandid= " . $_SESSION['companyid'] . " and source='twitter'" ;
 		   echo $query . '<br>';
-		   $result=mysql_query($query);
+		   $result=$mysql_conn->query($query);
 		   }
 		   
  echo 'next url ' . $_SESSION['next_url'] . '<br>';
@@ -130,12 +130,12 @@ echo  '<br>Next URL ' . $next . '<br>';
 if($next !="")
 {
 		   $query = "delete * from schedule where brandid= " . $_SESSION['companyid'] . " and source='twitter'" ;
-		   $result=mysql_query($query);
+		   $result=$mysql_conn->query($query);
 		   
 $created_at = date('Y-m-d H:i:s');
 	$query = "Insert into schedule (brandid, source, next_url,active,created_at) Values(" . $_SESSION['companyid'] .", 'twitter', '$next', 1, '$created_at')";
 	echo $query;
-	 $result=mysql_query($query);
+	 $result=$mysql_conn->query($query);
 	 
 	 }
 $glf++;
@@ -175,14 +175,14 @@ $counter++;
 
 	if($text != "")
 	{
-		$result=mysql_query("SELECT * FROM listeningdata where id_str='$id_str'");
+		$result=$mysql_conn->query("SELECT * FROM listeningdata where id_str='$id_str'");
 		$rn=mysql_num_rows($result);
 		if($rn<=0)
 		{
 		$query = "Insert into listeningdata (id_str, brandid, text, date_created, language, author, published, link, author_img, 
 		user_id_str, user_screen_name, follower_count, friends_count, favourites_count, statuses_count, retweet_count, favorite_count, site_type) Values('$id_str', " . $_SESSION['companyid'] .", '$text', '$created_at', '$language','$user_screen_name','$published','$profile_image_url', '$profile_image_url', '$user_id_str', '$user_name', '$follower_count', '$friends_count', '$favourites_count', '$statuses_count', '$retweet_count', '$favorite_count','twitter')";
 		echo '<br><br>' . $query .'<br><br>';
-		$result=mysql_query($query);
+		$result=$mysql_conn->query($query);
 		echo '<br><br>result of insert query is ' . $result;
 		}
 	}

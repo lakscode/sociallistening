@@ -11,10 +11,10 @@ $query = "SELECT * FROM brands where brand in (select brand from brands where br
 
 //echo $query;
  
-$rows=mysql_query($query);
+$rows=$mysql_conn->query($query);
 
 $cnt=0;
-   while ($row = mysql_fetch_array($rows))
+   while ($row = $rows->fetch_assoc())
    {
    $cnt++;
 ?>
