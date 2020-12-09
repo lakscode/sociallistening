@@ -119,14 +119,14 @@ $counter=0;
 //print_r($tweets);
 //$tweets = json_decode($response, true);
  echo '<table>';
-printTweet($tweets->statuses,$company, $keywords);
+printTweet($tweets->statuses,$company, $keywords, $mysql_conn);
 $glf=0;
 $next = $tweets->search_metadata->next_results;
 a:
 if(substr($next,0,1) == "?")
 {
 $tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json" . $next );
-printTweet($tweets->statuses,$screenname, $keywords);
+printTweet($tweets->statuses,$screenname, $keywords, $mysql_conn);
 //$next = $tweets->search_metadata->next_results;
 echo  $next;
 
@@ -174,7 +174,7 @@ if(substr($next,0,1) == "?")
 	$result=$mysql_conn->query($query);
 	 
 	$tweets = $connection->get("https://api.twitter.com/1.1/search/tweets.json" . $next );
-	printTweet($tweets->statuses,$screenname, $keywords);
+	printTweet($tweets->statuses,$screenname, $keywords, $mysql_conn);
 	$next = $tweets->search_metadata->next_results;
 	echo  $tweets->search_metadata->next_results;
 	$glf++;
@@ -188,7 +188,7 @@ goto a;
 
 }
 
-function printTweet($tweets,$company, $keywords)
+function printTweet($tweets,$company, $keywords, $mysql_conn)
 {
 echo '<br> ' . $keywords . '<br>';
 $counter =0;
@@ -214,7 +214,7 @@ $counter++;
 	if($text != "")
 	{
 		$result=$mysql_conn->query("SELECT * FROM listeningdata where id_str='$id_str'");
-		$rn=mysql_num_rows($result);
+		$rn=$result->num_rows;// ($result);
 		if($rn<=0)
 		{
 		$query = "Insert into listeningdata (id_str, brandid, text, date_created, language, author, published, link, author_img, 
