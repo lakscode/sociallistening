@@ -1,0 +1,357 @@
+body.bg {
+margin:0;
+top:0;
+left:0;
+padding:0;
+background:  url("../images/bg.jpg") no-repeat center 1.5%;
+}
+
+.pgheader
+{
+width:100%;
+padding:0;
+height:2%;
+margin:0 auto;
+background: #334567; 
+}
+
+.pgheader .cnt
+{
+width:100%;
+float:left;
+height:100%;
+}
+.pgheader .cnt .title
+{
+color:#FFF;
+margin-top:20px;
+font-size:16pt;
+}
+
+.divData {
+ background: #334567;
+  /*  display: none; /* ensures it’s invisible until it’s called */
+/* makes the div go into a position that’s absolute to the browser viewing area */
+    padding:5px;
+    border: 2px solid #111;
+   /*  z-index: 100; makes the div the top layer, so it’ll lay on top of the other content */
+
+}
+.btn
+{
+border:0;
+position:absolute;
+margin-top:-25px;
+margin-right:-5px;
+float:right;
+right: 0;
+width:24px;
+height:24px;
+}
+
+#divMenu
+{
+position:relative;
+margin-top:-20px;
+background: #CCC;
+border: 2px solid #111;
+width:180px;
+
+}
+#divMenu input
+{
+
+width:100%;
+padding:5px;
+}
+
+#divMenu a
+{
+display:block;
+width:100%;
+padding:5px;
+
+font-size:10pt;
+border: 2px solid #CCC;
+ border:1px solid #a0a0a0;
+ background-color: #bababa; background-image: -webkit-gradient(linear, left top, left bottom, from(#bababa), to(#575757));
+ background-image: -webkit-linear-gradient(top, #bababa, #575757);
+ background-image: -moz-linear-gradient(top, #bababa, #575757);
+ background-image: -ms-linear-gradient(top, #bababa, #575757);
+ background-image: -o-linear-gradient(top, #bababa, #575757);
+ background-image: linear-gradient(to bottom, #bababa, #575757);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#bababa, endColorstr=#575757);
+}
+
+#divMenu a:hover
+{
+ background: #47a3da;
+display:block;
+width:100%;
+padding:5px;
+
+ background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  font-family: Arial;
+  color: #ffffff;
+  text-decoration: none;
+  
+}
+
+
+#divMenuMain
+{
+position:relative;
+margin-top:-20px;
+background: #CCC;
+border: 2px solid #111;
+width:200px;
+
+}
+#divMenuMain input
+{
+display:block;
+width:100%;
+padding:5px;
+}
+
+
+#divMenuMain a
+{
+display:block;
+width:100%;
+padding:2px;
+font-family:Arial;
+font-size:9pt;
+border: 2px solid #CCC;
+ border:1px solid #a0a0a0;
+ background-color: #bababa; background-image: -webkit-gradient(linear, left top, left bottom, from(#bababa), to(#575757));
+ background-image: -webkit-linear-gradient(top, #bababa, #575757);
+ background-image: -moz-linear-gradient(top, #bababa, #575757);
+ background-image: -ms-linear-gradient(top, #bababa, #575757);
+ background-image: -o-linear-gradient(top, #bababa, #575757);
+ background-image: linear-gradient(to bottom, #bababa, #575757);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#bababa, endColorstr=#575757);
+}
+
+#divMenuMain a:hover
+{
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  font-family: Arial;
+  color: #ffffff;
+  text-decoration: none;
+  
+}
+#chartcontainer
+{
+width:90%;
+}
+
+.hit-the-floor {
+color: #fff;
+font-size: 18pt;
+font-weight: bold;
+font-family: Helvetica;
+text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb, 0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0,0,0,.1), 0 0 5px rgba(0,0,0,.1), 0 1px 3px rgba(0,0,0,.3), 0 3px 5px rgba(0,0,0,.2), 0 5px 10px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.2), 0 20px 20px rgba(0,0,0,.15);
+}
+
+.hit-the-floor {
+  /*text-align: center;*/
+}
+.shBrand {
+width:100%;
+display:block;
+}
+.controlsrt
+{
+display:inline-block;
+text-align:right;
+width:200px;
+float:right;
+margin-bottom:10px;
+}
+
+.btn-addkeywords
+{
+margin-left:10px;
+text-decoration:none;
+}
+.btn-delete
+{
+margin-left:10px;
+width:16px;
+}
+.btn-active
+{
+margin-left:10px;
+width:32px;
+
+}
+
+#wrapper
+{
+margin-left:15px;
+margin-top:5px;
+display:inline-block;
+}
+#wrapper h1{
+
+ font:bold 150% Arial;
+ color:#EA2429;
+ text-shadow: 0 1px 0 #EA2429,
+ 0 2px 0 #993224,
+ 0 3px 0 #DDD,
+ 0 4px 0 #EEE,
+ 0 5px 0 #FFF,
+ 0 6px 1px rgba(0,0,0,.1),
+ 0 0 5px rgba(0,0,0,.1),
+ 0 1px 3px rgba(0,0,0,.3),
+ 0 3px 5px rgba(0,0,0,.2),
+ 0 5px 10px rgba(0,0,0,.25),
+ 0 10px 10px rgba(0,0,0,.2),
+ 0 20px 20px rgba(0,0,0,.15);
+}
+
+
+
+details {
+  border-radius: 3px;
+  background: #DDD;
+  margin: 0em 0;
+}
+
+summary {
+  background: #DDD;
+  color: #000;
+  border-radius: 3px;
+  padding: 5px 10px;
+  outline: none;
+}
+
+/* Style the summary when details box is open */
+details[open] summary {
+  background: #DDD;
+  color: #333;
+}
+
+/* Custom Markers */
+#custom-marker summary {
+  font-size: 17px;
+  vertical-align: top;
+}
+
+#custom-marker summary::-webkit-details-marker {
+  display: none;
+}
+
+#custom-marker summary:before {
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin-right: 8px;
+  content: "";
+  background-image: url(../images/treehouse-icon-sprite.png);
+  background-repeat: no-repeat;
+  background-position: 0 0;
+}
+
+#custom-marker[open] summary:before {
+  background-position: -18px 0;
+}
+
+
+/******************************** notification ***************************/
+.divNotify
+{
+font-size:50%;
+background: #FFF;
+border: 2px solid #DDD;
+z-index:100;	
+margin:0;
+padding:0;	
+padding-top:5px;
+padding-bottom:5px;
+  border-color: #eee #ddd #bbb;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+   font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 50%;
+  line-height: 16px;
+}
+.divNotify p
+{
+padding-left: 8px;
+padding-bottom: 8px;
+font-size: 100%;
+background-color: #ffffff;
+border-bottom: 1px solid #dddddd;
+}
+
+.divNotify a
+{
+margin:0;
+padding:0;
+display:block;
+padding: 8px;
+font-size:80%;
+width:30%;
+margin-left:60%;
+border: 1px solid #dddddd;
+}
+
+
+	.alert-box {
+		color:#555;
+		border-radius:10px;
+		font-family:Tahoma,Geneva,Arial,sans-serif;font-size:11px;
+		padding:10px 36px;
+		margin:10px;
+	}
+	.alert-box span {
+		font-weight:bold;
+		text-transform:uppercase;
+	}
+	.alert-box a {
+	padding:0;
+	margin:0;
+	display:inline;
+		font-weight:bold;
+		text-transform:uppercase;
+	}
+	
+	.error {
+		background:#ffecec url('../images/error.png') no-repeat 10px 50%;
+		border:1px solid #f5aca6;
+	}
+	.success {
+		background:#e9ffd9 url('../images/success.png') no-repeat 10px 50%;
+		border:1px solid #a6ca8a;
+	}
+	.warning {
+		background:#fff8c4 url('../images/warning.png') no-repeat 10px 50%;
+		border:1px solid #f2c779;
+	}
+	.notice {
+		background:#e3f7fc url('../images/notice.png') no-repeat 10px 50%;
+		border:1px solid #8ed9f6;
+	}
+	
+	
+/******************************** notification ***************************/
+
+#chartMinWindows
+{
+float:left;
+position: fixed;
+width:100%;
+height:50px;
+bottom:0;
+}

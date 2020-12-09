@@ -1,0 +1,139 @@
+.display-post {
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: #eee #ddd #bbb;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  padding: 0 16px 16px 16px;
+  width: 98%;
+}
+ 
+.display-post p {
+  font-size: 16px;
+  font-weight: normal;
+  color:#FFF;
+}
+ 
+.display-post a {
+  color: inherit;
+  font-weight: normal;
+  text-decoration: none;
+  outline: 0 none;
+}
+ 
+.display-post a:hover,
+.display-post a:focus {
+  text-decoration: underline;
+}
+
+
+
+/*********************************************/
+
+.hidden {
+	display: none;
+}
+#tweet_column {
+	width: 92%;
+	height: 100%;
+	margin-top:1px;
+	margin-bottom:1px;
+	background:#FFF;
+
+}
+.tweet {
+	width: 100%;
+	display:inline-block;
+
+}
+.tweet_image {
+	float: left;
+	width:15%;
+
+}
+.tweet_image img {
+	width: 90%;
+	height: 90%;
+	padding: 8px 0 0 5px;
+	border: none;
+}
+
+.tweet_right {
+width:80%;
+padding-left:5px;
+	float: left;
+	padding-right: 5px;
+}
+.tweet_screen_name a {
+	font-size: 110%;
+	font-weight: bold;
+	text-align:center;
+	color:#2EB2E9;
+	text-decoration: none;
+}
+.tweet_screen_name a:hover {
+	text-decoration: underline;
+}
+.tweet_name {
+	font-size: 100%;
+	color: #808080;
+	padding-left: 10px;
+}
+.tweet_text {
+	font-size: 100%;
+	width:100%;
+}
+.tweet_text a {
+	text-decoration: none;
+}
+.tweet_text a:hover {
+	text-decoration: underline;
+}
+.tweet_date
+{
+height:20px;
+float:right;
+display:block;
+}
+.tweet_date a {
+	font-size: 80%;
+	color: #808080;
+	margin-top: 2px;
+	float: left;
+	text-decoration: none;
+}
+.tweet_date a:hover {
+	text-decoration: underline;
+}
+#new_tweet_count {
+	background-color: #cae4ff;
+	cursor: pointer;
+	width: 97%;
+	text-align: center;
+	padding: 10px 0 10px 10px;
+	margin-bottom: 10px;
+	-moz-border-radius: 8px;
+    -webkit-border-radius: 8px;
+	-khtml-border-radius: 8px;
+	border-radius: 8px;
+}
+#more_tweets_button {
+	background-color: #0080ff;
+	color:#FFFFFF;
+	text-align: center;
+	cursor: pointer;
+	width: 100%;
+	border: 1px solid #A6D5EC;
+	padding: 10px 0 10px 0;
+	margin-top:10px;
+	background:#2F8DB7;
+	margin-top:10px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-khtml-border-radius:6px;
+	border-radius:6px;
+} 

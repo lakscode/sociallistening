@@ -1,0 +1,140 @@
+table{
+	width:100%;
+	border-collapse:collapse;
+	table-layout:auto;
+	font-size:10pt;
+	vertical-align:top;
+	margin-bottom:15px;
+	border:1px solid #CCCCCC;
+	}
+
+table thead th{
+	color:#FFFFFF;
+	background-color:#666666;
+	border:1px solid #CCCCCC;
+	border-collapse:collapse;
+	text-align:center;
+	table-layout:auto;
+	vertical-align:middle;
+	}
+
+table tbody td{
+	vertical-align:top;
+	border-collapse:collapse;
+/*	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC; */
+	}
+	
+table thead th, table tbody td{
+	padding:5px;
+	border-collapse:collapse;
+	}
+
+table tbody tr.light{
+	color:#666666;
+	background-color:#F7F7F7;
+	}
+
+table tbody tr.dark{
+	color:#666666;
+	background-color:#E8E8E8;
+	}
+	
+form.frmimport
+{
+
+}	
+form.frmimport input
+{
+padding:5px;
+}	
+form.frmimport input:hover
+{
+background-color:#E8E8E8;
+color:#000;
+}
+
+/* table for tasklist */
+.tasklist{
+	width:100%;
+	border-collapse:collapse;
+	table-layout:auto;
+	vertical-align:top;
+	margin-bottom:15px;
+	border:1px solid #CCCCCC;
+	}
+
+.tasklist th{
+	color:#FFFFFF;
+	background-color:#666666;
+	border:1px solid #CCCCCC;
+	border-collapse:collapse;
+	text-align:center;
+	table-layout:auto;
+	vertical-align:middle;
+	}
+
+.tasklist td{
+	vertical-align:top;
+	border-collapse:collapse;
+	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC;
+	}
+	
+.tasklist tr.light{
+	color:#666666;
+	background-color:#F7F7F7;
+	}
+
+.tasklist tr.dark{
+	color:#666666;
+	background-color:#E8E8E8;
+	}	
+	
+/* .tasklist tr:hover{
+	color:#000;
+	background-color:#B2C629;
+	} */
+.tasklist th a{
+	color:#FFFFFF;
+	background-color:#666666;
+	}
+	
+/* .tasklist th a:hover{
+	color:blue;
+	background-color:#666666;
+	} */
+	
+/* table assign to */
+.tblassignto{
+	width:100%;
+	border-collapse:collapse;
+	table-layout:auto;
+	vertical-align:top;
+	margin-bottom:15px;
+	border:1px solid #CCCCCC;
+	}
+
+.tblassignto tr{
+	color:#000;
+	border:1px solid #CCCCCC;
+	border-collapse:collapse;
+	text-align:left;
+	table-layout:auto;
+	vertical-align:middle;
+	}
+
+.tblassignto td{
+	vertical-align:top;
+	border-collapse:collapse;
+	border-left:1px solid #CCCCCC;
+	border-right:1px solid #CCCCCC;
+	}
+	
+.selectuser
+{
+ line-height: 1.5;
+padding:3px;
+}	
+	
+	
